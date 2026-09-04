@@ -23,17 +23,19 @@ A stop-service button for DeepSeek Harness (DSH) Web: one confirmed click gracef
 
 ## 安装 / Install
 
-> [!IMPORTANT]
-> 本插件**未发布到 npm**——`npm install dsh-stop-service` 与 `dsh plugin add dsh-stop-service` 均不可用，请使用下方 Git 安装方式。
-> This plugin is **NOT published on npm** — the npm-based install commands will not work. Use the Git-based methods below.
+方式一 / Option 1 — npm 直装（推荐 / recommended）:
 
-方式一 / Option 1 — GitHub 直装（实测于 dsh 0.1.2-rc.1 / verified on dsh 0.1.2-rc.1）:
+```sh
+dsh plugin --profile web add dsh-stop-service
+```
+
+方式二 / Option 2 — GitHub 直装:
 
 ```sh
 dsh plugin --profile web add github:KhaosGx/dsh-stop-service
 ```
 
-方式二 / Option 2 — 克隆后本地 link（适合参与开发 / for development）:
+方式三 / Option 3 — 克隆后本地 link（适合参与开发 / for development）:
 
 ```sh
 git clone https://github.com/KhaosGx/dsh-stop-service.git
