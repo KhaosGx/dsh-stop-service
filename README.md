@@ -4,13 +4,13 @@ A stop-service button for DeepSeek Harness (DSH) Web: one confirmed click gracef
 
 ## 功能 / Features
 
-- 在**设置页新增「服务控制」一级分区**，提供带确认弹窗的「终止服务」按钮
-- 点击后宿主进程收到 SIGTERM 优雅退出——会话落盘、端口释放，效果与在终端执行 `kill <pid>` 完全一致
+- **实时服务信息**：进程 PID、启动时间、运行时长、内存占用、Node / DSH 宿主 / 插件版本、平台、已装载 bundles——每 5 秒自动刷新
+- 带**确认弹窗**的「终止服务」按钮：宿主进程收到 SIGTERM 优雅退出——会话落盘、端口释放，效果与在终端执行 `kill <pid>` 完全一致
 - 停止后页面显示重启指引（在终端运行 `npx @deepseek-ai/dsh web`，再刷新页面）
 - 中英双语文案
 
-- Adds a top-level **"Service" section** to Settings with a confirm-guarded stop button.
-- SIGTERM graceful shutdown: sessions flush, the port is released — identical to `kill <pid>` from a terminal.
+- Live service info: PID, start time, uptime, memory, Node/DSH/plugin versions, platform, loaded bundles — auto-refreshed every 5s.
+- Confirm-guarded stop button: SIGTERM graceful shutdown, identical to `kill <pid>` from a terminal.
 - After stopping, the page shows restart instructions.
 
 ## 兼容性 / Compatibility
@@ -40,7 +40,7 @@ dsh plugin --profile web add link:$(pwd)
 
 | 文件 | 职责 |
 |---|---|
-| `lib/index.js` | 宿主侧：注册两个仅限 loopback 的路由——`GET /api/dsh-stop-service/health`（存活探测）、`POST /api/dsh-stop-service/stop`（应答后 300ms 自发 SIGTERM） |
+| `lib/index.js` | 宿主侧：注册三个仅限 loopback 的路由——`GET /health`（存活探测）、`GET /info`（服务与 profile 信息）、`POST /stop`（应答后 300ms 自发 SIGTERM） |
 | `lib/client.js` | 浏览器侧：通过官方 `settings.section` 槽位注册设置分区与 React 组件，确认弹窗 → POST stop → 显示重启指引 |
 | `cordis.patch.yml` | bundle 层自登记（`dsh.bundle.patch`） |
 

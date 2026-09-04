@@ -19,6 +19,7 @@
     "settingsNamespaces": [],
     "routes": [
       { "kind": "exact", "path": "/api/dsh-stop-service/health" },
+      { "kind": "exact", "path": "/api/dsh-stop-service/info" },
       { "kind": "exact", "path": "/api/dsh-stop-service/stop" }
     ]
   }
