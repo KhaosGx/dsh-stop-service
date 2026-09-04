@@ -6,12 +6,13 @@ English | [中文](README.md)
 
 ## Features
 
-- **Live service info**: PID, start time, uptime, active sessions (sub-agents excluded, running tasks flagged), memory, CPU, Node / DSH host / plugin versions, platform — auto-refreshed every 5s, with memory/CPU sparklines; rows highlight when CPU ≥ 80% or memory ≥ 1024 MB
+- **Live service info**: PID, start time, uptime, active sessions (sub-agents excluded, running tasks flagged), memory, CPU, Node / DSH host / plugin versions, platform — auto-refreshed every 5s; memory/CPU sparklines with 3 min / 15 min / 1 hour windows, samples persisted to localStorage (~1h capacity, survive reloads); rows highlight when CPU ≥ 80% or memory ≥ 1024 MB; collapsible loaded-plugins inventory with installed versions and link-install tags
 - **Update banner**: compares against npm dist-tags at the top of the panel and, when a newer DSH host or plugin exists, offers one-click copy of the upgrade command plus links to the npm page / GitHub releases (queried from the browser — the host never phones out)
 - **Copy diagnostics**: one click puts a clean version/runtime summary on your clipboard for issue reports
 - **Connection status**: when the host stops responding, a banner names the snapshot age instead of silently showing stale data (a stop issued from this page does not trigger it)
 - **Confirm-guarded stop button**: escalates to an interruption warning when tasks are running, otherwise names how many live sessions will disconnect; the host exits gracefully via SIGTERM — sessions flush and the port is released, identical to `kill <pid>` from a terminal
 - **Drain-then-stop**: "Stop After Tasks Finish" waits for every running task to complete, then stops the service automatically (client-side watching only — the host keeps no timers; keep the settings page open)
+- **Header quick stop + multi-tab sync**: any settings page offers the same confirmed stop from the shell header; tabs coordinate the stopping state over BroadcastChannel so none is left hanging on stale data
 - **Auto-reload**: after stopping, the page watches for the restarted host and refreshes itself
 - Theme-aware via `--dsw-*` tokens
 
