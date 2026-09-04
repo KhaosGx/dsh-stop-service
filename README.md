@@ -4,12 +4,12 @@ A stop-service button for DeepSeek Harness (DSH) Web: one confirmed click gracef
 
 ## 功能 / Features
 
-- **实时服务信息**：进程 PID、启动时间、运行时长、内存占用、Node / DSH 宿主 / 插件版本、平台、已装载 bundles——每 5 秒自动刷新
+- **实时服务信息**：进程 PID、启动时间、运行时长、内存占用、Node / DSH 宿主 / 插件版本、平台——每 5 秒自动刷新
 - 带**确认弹窗**的「终止服务」按钮：宿主进程收到 SIGTERM 优雅退出——会话落盘、端口释放，效果与在终端执行 `kill <pid>` 完全一致
 - 停止后页面显示重启指引（在终端运行 `npx @deepseek-ai/dsh web`，再刷新页面）
 - 中英双语文案
 
-- Live service info: PID, start time, uptime, memory, Node/DSH/plugin versions, platform, loaded bundles — auto-refreshed every 5s.
+- Live service info: PID, start time, uptime, memory, Node/DSH/plugin versions, platform — auto-refreshed every 5s.
 - Confirm-guarded stop button: SIGTERM graceful shutdown, identical to `kill <pid>` from a terminal.
 - After stopping, the page shows restart instructions.
 
