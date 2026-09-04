@@ -4,13 +4,15 @@ A stop-service button for DeepSeek Harness (DSH) Web: one confirmed click gracef
 
 ## 功能 / Features
 
-- **实时服务信息**：进程 PID、启动时间、运行时长、活跃会话数、内存占用、CPU 占用、Node / DSH 宿主 / 插件版本、平台——每 5 秒自动刷新，附内存趋势迷你图
+- **实时服务信息**：进程 PID、启动时间、运行时长、活跃会话数、内存占用、CPU 占用、Node / DSH 宿主 / 插件版本、平台——每 5 秒自动刷新，附内存/CPU 趋势迷你图；CPU ≥ 80% 或内存 ≥ 1024 MB 时对应行高亮警示
+- **更新提醒**：面板顶部对比 npm registry 最新版，DSH 宿主或插件有新版时提示并附升级命令（浏览器端直查 registry，宿主不外联）
 - **复制诊断信息**：一键复制版本与运行状态摘要，提 issue 时直接粘贴
 - 带**确认弹窗**的「终止服务」按钮：确认框显示将断开的活跃会话数；宿主进程收到 SIGTERM 优雅退出——会话落盘、端口释放，效果与在终端执行 `kill <pid>` 完全一致
 - **服务回归自动刷新**：停止后持续探测，终端里重启完成时页面自动刷新接回
 - 界面适配 `--dsw-*` 主题变量，跟随皮肤切换；中英双语文案
 
-- Live service info: PID, start time, uptime, active sessions, memory, CPU, Node/DSH/plugin versions, platform — auto-refreshed every 5s, with a memory sparkline.
+- Live service info: PID, start time, uptime, active sessions, memory, CPU, Node/DSH/plugin versions, platform — auto-refreshed every 5s, with memory/CPU sparklines; rows highlight when CPU ≥ 80% or memory ≥ 1024 MB.
+- Update banner: compares against npm dist-tags from the browser (the host never phones out) and shows the upgrade command when a newer DSH host or plugin exists.
 - Copy-diagnostics button for issue reports.
 - Confirm-guarded stop button that names the live session count; SIGTERM graceful shutdown, identical to `kill <pid>` from a terminal.
 - Auto-reload once the restarted host comes back.
