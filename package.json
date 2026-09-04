@@ -1,6 +1,6 @@
 {
   "name": "dsh-stop-service",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "type": "module",
   "main": "lib/index.js",
   "description": "A stop-service button for DeepSeek Harness Web: one confirmed click gracefully terminates the running dsh host (SIGTERM) — no orphaned background processes",
