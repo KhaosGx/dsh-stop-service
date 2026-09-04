@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "policy": "dsh-plugin-naming/v1",
+  "plugin": {
+    "namespace": "khaosgx",
+    "name": "stop-service",
+    "coordinate": "khaosgx/stop-service",
+    "packageName": "dsh-stop-service"
+  },
+  "names": {
+    "pluginNames": ["stop-service"],
+    "loaderIds": ["ui-stop-service"],
+    "services": [],
+    "tools": [],
+    "commands": [],
+    "skills": [],
+    "skillProviders": [],
+    "events": [],
+    "settingsNamespaces": [],
+    "routes": [
+      { "kind": "exact", "path": "/api/dsh-stop-service/health" },
+      { "kind": "exact", "path": "/api/dsh-stop-service/stop" }
+    ]
+  }
+}
